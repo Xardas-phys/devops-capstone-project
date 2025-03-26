@@ -1,7 +1,7 @@
 ---
 name: "User Story"
 about: "A template for user stories with clear acceptance criteria"
-title: "[User Story]: "
+title: "User Story: [title]"
 labels: ["user-story"]
 assignees: []
 ---
