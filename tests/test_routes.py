@@ -177,6 +177,20 @@ class TestAccountService(TestCase):
         updated_account = resp.get_json()
         self.assertEqual(updated_account["name"], "Account")
 
+    def test_update_account_not_found(self):
+        """It should not Update an Account that is not found"""
+        # create the account data
+        new_account = {}
+        new_account["name"] = "Account"
+        resp = self.client.put(
+            f"{BASE_URL}/0",
+            json=new_account
+        )
+        self.assertEqual(
+            resp.status_code,
+            status.HTTP_404_NOT_FOUND
+        )
+
     def test_method_not_allowed(self):
         """It should not allow an illegal method call"""
         resp = self.client.delete(BASE_URL)
