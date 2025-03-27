@@ -131,7 +131,7 @@ class TestAccountService(TestCase):
             content_type="test/html"
         )
         self.assertEqual(
-            response.status_code, 
+            response.status_code,
             status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
         )
 
@@ -221,7 +221,7 @@ class TestAccountService(TestCase):
         )
         data = resp.get_json()
         self.assertEqual(len(data), 5)
-    
+
     def test_security_headers(self):
         """It should return security headers"""
         response = self.client.get('/', environ_overrides=HTTPS_ENVIRON)
